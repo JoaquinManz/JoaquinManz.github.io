@@ -28,6 +28,18 @@ export interface ProjectLink { label: string; href: string; kind: 'repo' | 'demo
 export interface Project { name: string; description: string; tech: string[]; links: ProjectLink[]; imageAlt: string; image?: string }
 export interface ProjectsData { heading: string; projects: Project[] }
 
+export interface SecuData {
+  heading: string
+  name: string
+  summary: string
+  role?: string
+  tech: string[]
+  highlights: string[]
+  links: ProjectLink[]
+  imageAlt: string
+  image?: string
+}
+
 export interface ContactData {
   heading: string
   message: string
