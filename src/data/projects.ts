@@ -4,33 +4,34 @@ export const projectsData: ProjectsData = {
   heading: 'Projects',
   projects: [
     {
-      name: '[PROYECTO_1]',
-      description: '[DESCRIPCION_PROYECTO_1]',
-      tech: ['[TECH_1]', '[TECH_2]', '[TECH_3]'],
-      links: [
-        { label: 'Repo', href: '[GITHUB_URL_PROYECTO_1]', kind: 'repo' },
-        { label: 'Demo', href: '[DEMO_URL_PROYECTO_1]', kind: 'demo' },
-      ],
-      imageAlt: 'Screenshot of [PROYECTO_1]',
+      name: 'Rabbit Ecommerce',
+      description: 'Ecommerce full stack con React, Node.js, MongoDB y APIs RESTful.',
+      tech: ['React', 'Node.js', 'MongoDB', 'REST APIs'],
+      links: [{ label: 'Repo', href: '[REPO_URL_RABBIT_ECOMMERCE]', kind: 'repo' }],
+      imageAlt: 'Screenshot of Rabbit Ecommerce',
     },
     {
-      name: '[PROYECTO_2]',
-      description: '[DESCRIPCION_PROYECTO_2]',
-      tech: ['[TECH_1]', '[TECH_4]'],
-      links: [
-        { label: 'Repo', href: '[GITHUB_URL_PROYECTO_2]', kind: 'repo' },
-      ],
-      imageAlt: 'Screenshot of [PROYECTO_2]',
+      name: 'Data Finance',
+      description:
+        'Sitio de finanzas responsive construido en React.js, con componentes reutilizables y diseño adaptable.',
+      tech: ['React.js'],
+      links: [{ label: 'Repo', href: '[REPO_URL_DATA_FINANCE]', kind: 'repo' }],
+      imageAlt: 'Screenshot of Data Finance',
     },
     {
-      name: '[PROYECTO_3]',
-      description: '[DESCRIPCION_PROYECTO_3]',
-      tech: ['[TECH_5]', '[TECH_6]'],
-      links: [
-        { label: 'Repo', href: '[GITHUB_URL_PROYECTO_3]', kind: 'repo' },
-        { label: 'Live site', href: '[EXTERNAL_URL_PROYECTO_3]', kind: 'external' },
-      ],
-      imageAlt: 'Screenshot of [PROYECTO_3]',
+      name: 'Studio Ghibli App',
+      description:
+        'Aplicación en Vue.js que consume la API pública de Studio Ghibli, con renderizado dinámico y manejo de datos asíncronos.',
+      tech: ['Vue.js'],
+      links: [{ label: 'Repo', href: '[REPO_URL_STUDIO_GHIBLI_APP]', kind: 'repo' }],
+      imageAlt: 'Screenshot of Studio Ghibli App',
+    },
+    {
+      name: 'Geritch Restaurant',
+      description: 'Landing page para restaurante con animaciones CSS y diseño responsive.',
+      tech: ['HTML5', 'CSS3'],
+      links: [{ label: 'Repo', href: '[REPO_URL_GERITCH_RESTAURANT]', kind: 'repo' }],
+      imageAlt: 'Screenshot of Geritch Restaurant',
     },
   ],
 }

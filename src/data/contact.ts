@@ -2,10 +2,12 @@ import type { ContactData } from './types'
 
 export const contactData: ContactData = {
   heading: 'Contact',
-  message: '[MENSAJE_INVITANDO_A_CONTACTAR]',
-  email: '[EMAIL]',
+  message: '¿Tenés una oportunidad o proyecto en mente? Escribime, me encantaría conversar.',
+  email: 'manzanares20.business@gmail.com',
+  phone: '+598 91 819 872',
+  location: 'Montevideo, Uruguay',
   socials: [
-    { label: 'GitHub', href: '[GITHUB_URL]' },
-    { label: 'LinkedIn', href: '[LINKEDIN_URL]' },
+    { label: 'GitHub', href: 'https://github.com/JoaquinManz' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/joaquinmanz/' },
   ],
 }

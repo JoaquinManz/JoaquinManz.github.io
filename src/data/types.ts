@@ -15,4 +15,11 @@ export interface ProjectLink { label: string; href: string; kind: 'repo' | 'demo
 export interface Project { name: string; description: string; tech: string[]; links: ProjectLink[]; imageAlt: string; image?: string }
 export interface ProjectsData { heading: string; projects: Project[] }
 
-export interface ContactData { heading: string; message: string; email: string; socials: SocialLink[] }
+export interface ContactData {
+  heading: string
+  message: string
+  email: string
+  phone: string
+  location: string
+  socials: SocialLink[]
+}
