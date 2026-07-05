@@ -1,7 +1,17 @@
 export interface NavItem { id: string; label: string }
 export interface SocialLink { label: string; href: string }
 
-export interface HeroData { name: string; title: string; tagline: string; ctaLabel: string; ctaHref: string }
+export interface HeroData {
+  name: string
+  title: string
+  tagline: string
+  ctaLabel: string
+  ctaHref: string
+  photo?: string
+  photoAlt?: string
+  githubHref: string
+  linkedinHref: string
+}
 export interface AboutData { heading: string; paragraphs: string[]; portraitAlt: string; portrait?: string }
 
 export interface Skill { name: string; level?: 'beginner' | 'intermediate' | 'advanced' }
