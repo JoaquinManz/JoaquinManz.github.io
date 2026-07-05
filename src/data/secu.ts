@@ -1,7 +1,7 @@
 import type { SecuData } from './types'
 
 export const secuData: SecuData = {
-  heading: 'Featured Case Study',
+  heading: 'Proyecto Destacado',
   name: 'Sistema de Evaluación de Convocatoria UTEC (SECU)',
   summary:
     'Sistema de gestión de becas, proyecto académico real para UTEC, desarrollado en equipo (CapyTech, 6 personas) con un tutor asignado bajo metodología ágil/Scrum.',
