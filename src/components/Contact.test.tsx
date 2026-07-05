@@ -8,6 +8,8 @@ describe('Contact', () => {
       heading: 'Contact',
       message: "Let's build something together.",
       email: 'ada@example.com',
+      phone: '+1 415 555 0100',
+      location: 'San Francisco, USA',
       socials: [{ label: 'GitHub', href: 'https://github.com/ada' }],
     }
 
