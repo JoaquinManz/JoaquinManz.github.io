@@ -4,18 +4,33 @@ export const skillsData: SkillsData = {
   heading: 'Skills',
   categories: [
     {
-      category: 'Frontend',
+      category: 'Lenguajes',
+      skills: [{ name: 'JavaScript' }, { name: 'HTML5' }, { name: 'CSS3' }],
+    },
+    {
+      category: 'Frameworks y librerías',
+      skills: [{ name: 'React' }, { name: 'Node.js' }, { name: 'Express.js' }],
+    },
+    {
+      category: 'Bases de datos',
+      skills: [{ name: 'MongoDB' }, { name: 'SQL' }],
+    },
+    {
+      category: 'Herramientas y plataformas',
       skills: [
-        { name: '[SKILL_FRONTEND_1]', level: 'advanced' },
-        { name: '[SKILL_FRONTEND_2]', level: 'intermediate' },
-        { name: '[SKILL_FRONTEND_3]', level: 'advanced' },
+        { name: 'Git' },
+        { name: 'GitLab' },
+        { name: 'Notion' },
+        { name: 'Trello' },
+        { name: 'Softland' },
       ],
     },
     {
-      category: 'Backend',
+      category: 'Otras',
       skills: [
-        { name: '[SKILL_BACKEND_1]', level: 'intermediate' },
-        { name: '[SKILL_BACKEND_2]', level: 'beginner' },
+        { name: 'Testing funcional' },
+        { name: 'Metodologías ágiles' },
+        { name: 'Inglés avanzado (Cambridge FCE)' },
       ],
     },
   ],

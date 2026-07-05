@@ -8,6 +8,8 @@ export function Contact({ data }: { data: ContactData }) {
       <a href={`mailto:${data.email}`} className="font-medium text-accent underline">
         {data.email}
       </a>
+      <p className="text-text">{data.phone}</p>
+      <p className="text-text">{data.location}</p>
       <ul className="flex gap-4">
         {data.socials.map((social) => (
           <li key={social.label}>

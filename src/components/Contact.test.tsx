@@ -8,6 +8,8 @@ describe('Contact', () => {
       heading: 'Contact',
       message: "Let's build something together.",
       email: 'ada@example.com',
+      phone: '+1 415 555 0100',
+      location: 'San Francisco, USA',
       socials: [{ label: 'GitHub', href: 'https://github.com/ada' }],
     }
 
@@ -26,6 +28,8 @@ describe('Contact', () => {
       heading: 'Contact',
       message: 'Reach out anytime.',
       email: 'grace@example.com',
+      phone: '+1 555 0100',
+      location: 'Boston, USA',
       socials: [
         { label: 'GitHub', href: 'https://github.com/grace' },
         { label: 'LinkedIn', href: 'https://linkedin.com/in/grace' },
@@ -39,5 +43,37 @@ describe('Contact', () => {
       'href',
       'https://linkedin.com/in/grace',
     )
+  })
+
+  it('renders phone and location', () => {
+    const data: ContactData = {
+      heading: 'Contact',
+      message: "Let's build something together.",
+      email: 'ada@example.com',
+      phone: '+44 20 7946 0958',
+      location: 'London, UK',
+      socials: [{ label: 'GitHub', href: 'https://github.com/ada' }],
+    }
+
+    render(<Contact data={data} />)
+
+    expect(screen.getByText('+44 20 7946 0958')).toBeInTheDocument()
+    expect(screen.getByText('London, UK')).toBeInTheDocument()
+  })
+
+  it('renders a different phone and location (triangulation)', () => {
+    const data: ContactData = {
+      heading: 'Contact',
+      message: 'Reach out anytime.',
+      email: 'grace@example.com',
+      phone: '+598 91 819 872',
+      location: 'Montevideo, Uruguay',
+      socials: [{ label: 'GitHub', href: 'https://github.com/grace' }],
+    }
+
+    render(<Contact data={data} />)
+
+    expect(screen.getByText('+598 91 819 872')).toBeInTheDocument()
+    expect(screen.getByText('Montevideo, Uruguay')).toBeInTheDocument()
   })
 })
