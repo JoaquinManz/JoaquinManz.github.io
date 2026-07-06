@@ -28,7 +28,7 @@ export const secuData: Record<Language, SecuData> = {
       'Comparison between the ER model and the UML model to detect inconsistencies (missing methods, unmatched entities, attribute discrepancies)',
       'Conversion of diagrams from draw.io to PlantUML',
     ],
-    links: [{ label: 'Repo', href: '[SECU_REPO_URL]', kind: 'repo' }],
+    links: [{ label: 'Repo', href: 'https://git.utec.edu.uy/caso-de-estudio/secu', kind: 'repo' }],
     imageAlt: 'Class diagram or final presentation of the SECU project',
   },
 }
