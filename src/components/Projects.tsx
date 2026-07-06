@@ -31,7 +31,13 @@ export function Projects({ data }: { data: ProjectsData }) {
             </ul>
             <div className="flex gap-4">
               {project.links.map((link) => (
-                <a key={link.label} href={link.href} className="text-accent underline">
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent underline"
+                >
                   {link.label}
                 </a>
               ))}

@@ -21,18 +21,29 @@ export function Hero({ data }: { data: HeroData }) {
       <p className="max-w-xl text-text">{data.tagline}</p>
       <a
         href={data.ctaHref}
+        download
         className="rounded-full bg-accent px-6 py-3 font-medium text-bg"
       >
         {data.ctaLabel}
       </a>
       <ul className="flex gap-4">
         <li>
-          <a href={data.githubHref} className="text-text hover:text-accent">
+          <a
+            href={data.githubHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text hover:text-accent"
+          >
             GitHub
           </a>
         </li>
         <li>
-          <a href={data.linkedinHref} className="text-text hover:text-accent">
+          <a
+            href={data.linkedinHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text hover:text-accent"
+          >
             LinkedIn
           </a>
         </li>

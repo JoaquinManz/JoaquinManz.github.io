@@ -56,4 +56,29 @@ describe('Secu', () => {
       'https://example.com/docs',
     )
   })
+
+  it('opens repo and docs links safely in a new tab', () => {
+    const data: SecuData = {
+      heading: 'Featured Case Study',
+      name: 'Different System',
+      summary: 'A different summary.',
+      tech: ['Scrum'],
+      highlights: ['Led sprint planning'],
+      links: [
+        { label: 'Repo', href: 'https://gitlab.com/example/secu', kind: 'repo' },
+        { label: 'Docs', href: 'https://example.com/docs', kind: 'external' },
+      ],
+      imageAlt: 'Screenshot of Different System',
+    }
+
+    render(<Secu data={data} />)
+
+    const repoLink = screen.getByRole('link', { name: 'Repo' })
+    expect(repoLink).toHaveAttribute('target', '_blank')
+    expect(repoLink).toHaveAttribute('rel', 'noopener noreferrer')
+
+    const docsLink = screen.getByRole('link', { name: 'Docs' })
+    expect(docsLink).toHaveAttribute('target', '_blank')
+    expect(docsLink).toHaveAttribute('rel', 'noopener noreferrer')
+  })
 })

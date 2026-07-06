@@ -32,4 +32,15 @@ describe('Nav', () => {
     expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '#contact')
     expect(screen.getByRole('link', { name: 'Skills' })).toHaveAttribute('href', '#skills')
   })
+
+  it('wraps nav items onto multiple lines on narrow viewports', () => {
+    const items: NavItem[] = [
+      { id: 'hero', label: 'Home' },
+      { id: 'about', label: 'About' },
+    ]
+
+    render(<Nav items={items} />)
+
+    expect(screen.getByRole('list')).toHaveClass('flex-wrap')
+  })
 })

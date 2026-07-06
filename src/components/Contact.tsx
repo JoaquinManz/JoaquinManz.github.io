@@ -13,7 +13,12 @@ export function Contact({ data }: { data: ContactData }) {
       <ul className="flex gap-4">
         {data.socials.map((social) => (
           <li key={social.label}>
-            <a href={social.href} className="text-text hover:text-accent">
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text hover:text-accent"
+            >
               {social.label}
             </a>
           </li>

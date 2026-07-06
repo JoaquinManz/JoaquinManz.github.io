@@ -76,4 +76,24 @@ describe('Contact', () => {
     expect(screen.getByText('+598 91 819 872')).toBeInTheDocument()
     expect(screen.getByText('Montevideo, Uruguay')).toBeInTheDocument()
   })
+
+  it('opens social links safely in a new tab but keeps the mailto link in the same tab', () => {
+    const data: ContactData = {
+      heading: 'Contact',
+      message: "Let's build something together.",
+      email: 'ada@example.com',
+      phone: '+1 415 555 0100',
+      location: 'San Francisco, USA',
+      socials: [{ label: 'GitHub', href: 'https://github.com/ada' }],
+    }
+
+    render(<Contact data={data} />)
+
+    const socialLink = screen.getByRole('link', { name: 'GitHub' })
+    expect(socialLink).toHaveAttribute('target', '_blank')
+    expect(socialLink).toHaveAttribute('rel', 'noopener noreferrer')
+
+    const mailtoLink = screen.getByRole('link', { name: 'ada@example.com' })
+    expect(mailtoLink).not.toHaveAttribute('target')
+  })
 })

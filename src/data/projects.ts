@@ -1,37 +1,59 @@
 import type { ProjectsData } from './types'
 
 export const projectsData: ProjectsData = {
-  heading: 'Projects',
+  heading: 'Proyectos',
   projects: [
     {
       name: 'Rabbit Ecommerce',
       description: 'Ecommerce full stack con React, Node.js, MongoDB y APIs RESTful.',
-      tech: ['React', 'Node.js', 'MongoDB', 'REST APIs'],
-      links: [{ label: 'Repo', href: '[REPO_URL_RABBIT_ECOMMERCE]', kind: 'repo' }],
-      imageAlt: 'Screenshot of Rabbit Ecommerce',
+      tech: ['React.js', 'Node.js', 'MongoDB', 'REST APIs'],
+      links: [
+        { label: 'Repo', href: 'https://github.com/JoaquinManz/rabbit-ecommerce', kind: 'repo' },
+        { label: 'Demo', href: 'https://rabbit-ecommerce-liart.vercel.app/', kind: 'demo' },
+      ],
+      imageAlt: 'Captura de pantalla de Rabbit Ecommerce',
     },
     {
       name: 'Data Finance',
       description:
         'Sitio de finanzas responsive construido en React.js, con componentes reutilizables y diseño adaptable.',
       tech: ['React.js'],
-      links: [{ label: 'Repo', href: '[REPO_URL_DATA_FINANCE]', kind: 'repo' }],
-      imageAlt: 'Screenshot of Data Finance',
+      links: [
+        { label: 'Repo', href: 'https://github.com/JoaquinManz/data-finance', kind: 'repo' },
+        { label: 'Demo', href: 'https://datafinancejm.netlify.app/', kind: 'demo' },
+      ],
+      imageAlt: 'Captura de pantalla de Data Finance',
     },
     {
-      name: 'Studio Ghibli App',
+      name: 'Shopping Cart',
       description:
-        'Aplicación en Vue.js que consume la API pública de Studio Ghibli, con renderizado dinámico y manejo de datos asíncronos.',
-      tech: ['Vue.js'],
-      links: [{ label: 'Repo', href: '[REPO_URL_STUDIO_GHIBLI_APP]', kind: 'repo' }],
-      imageAlt: 'Screenshot of Studio Ghibli App',
+        'Carrito de compras interactivo construido en React, con agregado y eliminación de productos, gestión del estado del carrito y flujo de checkout.',
+      tech: ['React.js'],
+      links: [
+        { label: 'Demo', href: 'https://shoppingcartjm.netlify.app/', kind: 'demo' },
+        { label: 'Repo', href: 'https://github.com/JoaquinManz/Shopping-cart', kind: 'repo' },
+      ],
+      imageAlt: 'Captura de pantalla de Shopping Cart',
     },
     {
       name: 'Geritch Restaurant',
       description: 'Landing page para restaurante con animaciones CSS y diseño responsive.',
-      tech: ['HTML5', 'CSS3'],
-      links: [{ label: 'Repo', href: '[REPO_URL_GERITCH_RESTAURANT]', kind: 'repo' }],
-      imageAlt: 'Screenshot of Geritch Restaurant',
+      tech: ['HTML5', 'CSS3', 'React.js'],
+      links: [
+        { label: 'Repo', href: 'https://github.com/JoaquinManz/geritch-restaurant', kind: 'repo' },
+        { label: 'Demo', href: 'https://geritchjm.netlify.app/', kind: 'demo' },
+      ],
+      imageAlt: 'Captura de pantalla de Geritch Restaurant',
     },
+    {
+      name: 'GPT-3 OpenAI Landing Page',
+      description: 'Landing page de demostración para OpenAI GPT-3, con diseño moderno y responsive.',
+      tech: ['HTML5', 'CSS3', 'React.js'],
+      links: [
+        { label: 'Repo', href: 'https://github.com/JoaquinManz/gpt3-jm', kind: 'repo' },
+        { label: 'Demo', href: 'https://gpt3jm.netlify.app/', kind: 'demo' },
+      ],
+      imageAlt: 'Captura de pantalla de GPT-3 OpenAI Landing Page',
+    }
   ],
 }

@@ -59,4 +59,32 @@ describe('Projects', () => {
       'https://tracker.example.com',
     )
   })
+
+  it('opens repo and demo links safely in a new tab', () => {
+    const data: ProjectsData = {
+      heading: 'Projects',
+      projects: [
+        {
+          name: 'Task Tracker',
+          description: 'A Kanban board app.',
+          tech: ['Vue', 'Firebase'],
+          links: [
+            { label: 'Repo', href: 'https://github.com/example/tracker', kind: 'repo' },
+            { label: 'Demo', href: 'https://tracker.example.com', kind: 'demo' },
+          ],
+          imageAlt: 'Screenshot of Task Tracker',
+        },
+      ],
+    }
+
+    render(<Projects data={data} />)
+
+    const repoLink = screen.getByRole('link', { name: 'Repo' })
+    expect(repoLink).toHaveAttribute('target', '_blank')
+    expect(repoLink).toHaveAttribute('rel', 'noopener noreferrer')
+
+    const demoLink = screen.getByRole('link', { name: 'Demo' })
+    expect(demoLink).toHaveAttribute('target', '_blank')
+    expect(demoLink).toHaveAttribute('rel', 'noopener noreferrer')
+  })
 })
