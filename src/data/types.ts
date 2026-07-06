@@ -1,3 +1,5 @@
+export type Language = 'es' | 'en'
+
 export interface NavItem { id: string; label: string }
 export interface SocialLink { label: string; href: string }
 

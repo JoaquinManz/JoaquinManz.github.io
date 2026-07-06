@@ -1,6 +1,16 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { Nav } from './Nav'
+import { LanguageProvider } from '../context/LanguageContext'
 import type { NavItem } from '../data/types'
+
+function renderNav(items: NavItem[]) {
+  return render(
+    <LanguageProvider>
+      <Nav items={items} />
+    </LanguageProvider>,
+  )
+}
 
 describe('Nav', () => {
   it('renders one link per nav item with an href pointing to its section id', () => {
@@ -9,7 +19,7 @@ describe('Nav', () => {
       { id: 'about', label: 'About' },
     ]
 
-    render(<Nav items={items} />)
+    renderNav(items)
 
     const homeLink = screen.getByRole('link', { name: 'Home' })
     const aboutLink = screen.getByRole('link', { name: 'About' })
@@ -25,7 +35,7 @@ describe('Nav', () => {
       { id: 'skills', label: 'Skills' },
     ]
 
-    render(<Nav items={items} />)
+    renderNav(items)
 
     expect(screen.getAllByRole('link')).toHaveLength(3)
     expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('href', '#projects')
@@ -39,8 +49,52 @@ describe('Nav', () => {
       { id: 'about', label: 'About' },
     ]
 
-    render(<Nav items={items} />)
+    renderNav(items)
 
     expect(screen.getByRole('list')).toHaveClass('flex-wrap')
+  })
+
+  describe('language toggle', () => {
+    const items: NavItem[] = [{ id: 'hero', label: 'Home' }]
+
+    it('renders ES and EN buttons', () => {
+      renderNav(items)
+
+      expect(screen.getByRole('button', { name: 'ES' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'EN' })).toBeInTheDocument()
+    })
+
+    it('marks the currently active language with aria-pressed', () => {
+      window.localStorage.setItem('lang', 'es')
+      renderNav(items)
+
+      expect(screen.getByRole('button', { name: 'ES' })).toHaveAttribute('aria-pressed', 'true')
+      expect(screen.getByRole('button', { name: 'EN' })).toHaveAttribute('aria-pressed', 'false')
+    })
+
+    it('clicking EN swaps the active language to English', async () => {
+      window.localStorage.setItem('lang', 'es')
+      const user = userEvent.setup()
+      renderNav(items)
+
+      await user.click(screen.getByRole('button', { name: 'EN' }))
+
+      expect(screen.getByRole('button', { name: 'EN' })).toHaveAttribute('aria-pressed', 'true')
+      expect(screen.getByRole('button', { name: 'ES' })).toHaveAttribute('aria-pressed', 'false')
+    })
+
+    it('is keyboard-operable: tabbing to the button and pressing Enter swaps language', async () => {
+      window.localStorage.setItem('lang', 'es')
+      const user = userEvent.setup()
+      renderNav(items)
+
+      const enButton = screen.getByRole('button', { name: 'EN' })
+      enButton.focus()
+      expect(enButton).toHaveFocus()
+
+      await user.keyboard('{Enter}')
+
+      expect(screen.getByRole('button', { name: 'EN' })).toHaveAttribute('aria-pressed', 'true')
+    })
   })
 })
