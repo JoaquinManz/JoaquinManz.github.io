@@ -1,7 +1,7 @@
 import type { SkillsData } from './types'
 
 export const skillsData: SkillsData = {
-  heading: 'Skills',
+  heading: 'Habilidades',
   categories: [
     {
       category: 'Lenguajes',

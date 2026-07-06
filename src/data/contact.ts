@@ -1,7 +1,7 @@
 import type { ContactData } from './types'
 
 export const contactData: ContactData = {
-  heading: 'Contact',
+  heading: 'Contacto',
   message: '¿Tenés una oportunidad o proyecto en mente? Escribime, me encantaría conversar.',
   email: 'manzanares20.business@gmail.com',
   phone: '+598 91 819 872',

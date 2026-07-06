@@ -1,7 +1,7 @@
 import type { ExperienceData } from './types'
 
 export const experienceData: ExperienceData = {
-  heading: 'Experience',
+  heading: 'Experiencia',
   entries: [
     {
       role: 'Auxiliar Administrativo de Logística',
@@ -9,7 +9,7 @@ export const experienceData: ExperienceData = {
       period: '01/2026 - Presente',
       location: 'Montevideo',
       highlights: [
-        'Gestión de hasta 1,000 facturas semanales con 100% de trazabilidad documental',
+        'Gestión de hasta 1.000 facturas semanales con 100% de trazabilidad documental',
         'Coordinación de distribución de 500-700 productos semanales para grandes cadenas (Tienda Inglesa, Disco, El Dorado)',
         'Digitalización de registros mediante sistema Softland',
       ],

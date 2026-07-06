@@ -87,4 +87,29 @@ describe('Hero', () => {
     expect(image.tagName).toBe('IMG')
     expect(image).toHaveAttribute('src', '/photo.jpg')
   })
+
+  it('marks the CTA as a downloadable file and external profile links as safe new-tab links', () => {
+    const data: HeroData = {
+      name: 'Ada Lovelace',
+      title: 'Software Engineer',
+      tagline: 'Building thoughtful software.',
+      ctaLabel: 'Get in touch',
+      ctaHref: '#contact',
+      photoAlt: 'Portrait of Ada Lovelace',
+      githubHref: 'https://github.com/ada',
+      linkedinHref: 'https://linkedin.com/in/ada',
+    }
+
+    render(<Hero data={data} />)
+
+    expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('download')
+
+    const githubLink = screen.getByRole('link', { name: 'GitHub' })
+    expect(githubLink).toHaveAttribute('target', '_blank')
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer')
+
+    const linkedinLink = screen.getByRole('link', { name: 'LinkedIn' })
+    expect(linkedinLink).toHaveAttribute('target', '_blank')
+    expect(linkedinLink).toHaveAttribute('rel', 'noopener noreferrer')
+  })
 })

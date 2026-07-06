@@ -1,7 +1,7 @@
 import type { EducationData } from './types'
 
 export const educationData: EducationData = {
-  heading: 'Education',
+  heading: 'Educación',
   entries: [
     {
       title: 'Licenciatura en Tecnologías de la Información',
