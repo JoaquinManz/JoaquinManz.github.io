@@ -16,38 +16,49 @@ import { educationData } from './data/education'
 import { secuData } from './data/secu'
 import { projectsData } from './data/projects'
 import { contactData } from './data/contact'
+import { LanguageProvider, useLanguage } from './context/LanguageContext'
 
-function App() {
+function AppContent() {
+  const { lang } = useLanguage()
+
   return (
     <>
-      <Nav items={navItems} />
+      <Nav items={navItems[lang]} />
       <main className="mx-auto flex max-w-4xl flex-col gap-24 px-6 pt-24 pb-16">
         <section id="hero" className="scroll-mt-24">
-          <Hero data={heroData} />
+          <Hero data={heroData[lang]} />
         </section>
         <section id="about" className="scroll-mt-24">
-          <About data={aboutData} />
+          <About data={aboutData[lang]} />
         </section>
         <section id="skills" className="scroll-mt-24">
-          <Skills data={skillsData} />
+          <Skills data={skillsData[lang]} />
         </section>
         <section id="experience" className="scroll-mt-24">
-          <Experience data={experienceData} />
+          <Experience data={experienceData[lang]} />
         </section>
         <section id="education" className="scroll-mt-24">
-          <Education data={educationData} />
+          <Education data={educationData[lang]} />
         </section>
         <section id="secu" className="scroll-mt-24">
-          <Secu data={secuData} />
+          <Secu data={secuData[lang]} />
         </section>
         <section id="projects" className="scroll-mt-24">
-          <Projects data={projectsData} />
+          <Projects data={projectsData[lang]} />
         </section>
         <section id="contact" className="scroll-mt-24">
-          <Contact data={contactData} />
+          <Contact data={contactData[lang]} />
         </section>
       </main>
     </>
+  )
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   )
 }
 

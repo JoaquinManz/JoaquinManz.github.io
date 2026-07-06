@@ -62,6 +62,19 @@ describe('LanguageContext', () => {
     expect(screen.getByTestId('lang-value')).toHaveTextContent('es')
   })
 
+  it('degrades gracefully to navigator detection when the stored preference is not a valid language value', () => {
+    mockNavigatorLanguage('en-US')
+    window.localStorage.setItem('lang', 'fr')
+
+    render(
+      <LanguageProvider>
+        <Consumer />
+      </LanguageProvider>,
+    )
+
+    expect(screen.getByTestId('lang-value')).toHaveTextContent('en')
+  })
+
   it('falls back to in-memory state without throwing when localStorage is unavailable, and still allows toggling', async () => {
     mockNavigatorLanguage('en-US')
     const getItemSpy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
