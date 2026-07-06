@@ -26,7 +26,10 @@ describe('Secu', () => {
     expect(
       screen.getByText('Compared MER and UML models to detect inconsistencies'),
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Repo' })).toHaveAttribute('href', '[SECU_REPO_URL]')
+    expect(screen.getByRole('link', { name: 'Repo' })).toHaveAttribute(
+      'href',
+      'https://git.utec.edu.uy/caso-de-estudio/secu',
+    )
     const stub = screen.getByRole('img', { name: 'Diagram of the SECU system' })
     expect(stub.tagName).not.toBe('IMG')
   })
