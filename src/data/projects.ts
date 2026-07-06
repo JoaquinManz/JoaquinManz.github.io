@@ -12,6 +12,7 @@ export const projectsData: ProjectsData = {
         { label: 'Demo', href: 'https://rabbit-ecommerce-liart.vercel.app/', kind: 'demo' },
       ],
       imageAlt: 'Captura de pantalla de Rabbit Ecommerce',
+      image: '/img/rabbit.jpeg',
     },
     {
       name: 'Data Finance',
@@ -23,6 +24,7 @@ export const projectsData: ProjectsData = {
         { label: 'Demo', href: 'https://datafinancejm.netlify.app/', kind: 'demo' },
       ],
       imageAlt: 'Captura de pantalla de Data Finance',
+      image: '/img/finance.png',
     },
     {
       name: 'Shopping Cart',
@@ -34,6 +36,7 @@ export const projectsData: ProjectsData = {
         { label: 'Repo', href: 'https://github.com/JoaquinManz/Shopping-cart', kind: 'repo' },
       ],
       imageAlt: 'Captura de pantalla de Shopping Cart',
+      image: '/img/ecommerce.jpeg',
     },
     {
       name: 'Geritch Restaurant',
@@ -44,6 +47,7 @@ export const projectsData: ProjectsData = {
         { label: 'Demo', href: 'https://geritchjm.netlify.app/', kind: 'demo' },
       ],
       imageAlt: 'Captura de pantalla de Geritch Restaurant',
+      image: '/img/geritch.jpeg',
     },
     {
       name: 'GPT-3 OpenAI Landing Page',
@@ -54,6 +58,7 @@ export const projectsData: ProjectsData = {
         { label: 'Demo', href: 'https://gpt3jm.netlify.app/', kind: 'demo' },
       ],
       imageAlt: 'Captura de pantalla de GPT-3 OpenAI Landing Page',
+      image: '/img/gpt3.jpeg',
     }
   ],
 }
