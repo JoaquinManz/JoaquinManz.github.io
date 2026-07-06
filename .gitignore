@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# gentle-ai / SDD cache local
+.atl/
+
+# Claude Code — configuración personal, no la del equipo
+.claude/settings.local.json
