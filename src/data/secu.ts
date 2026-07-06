@@ -13,7 +13,7 @@ export const secuData: Record<Language, SecuData> = {
       'Comparación entre el modelo MER y el modelo UML para detectar inconsistencias (métodos faltantes, entidades no correspondidas, discrepancias de atributos)',
       'Conversión de diagramas de draw.io a PlantUML',
     ],
-    links: [{ label: 'Repo', href: '[SECU_REPO_URL]', kind: 'repo' }],
+    links: [{ label: 'Repo', href: 'https://git.utec.edu.uy/caso-de-estudio/secu', kind: 'repo' }],
     imageAlt: 'Diagrama de clases o presentación final del proyecto SECU',
   },
   en: {
