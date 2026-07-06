@@ -34,7 +34,7 @@ export const experienceData: Record<Language, ExperienceData> = {
       {
         role: 'Logistics Administrative Assistant',
         company: 'Visuar Uruguay',
-        period: '01/2026 - Presente',
+        period: '01/2026 - Present',
         location: 'Montevideo',
         highlights: [
           'Managed up to 1,000 weekly invoices with 100% document traceability',

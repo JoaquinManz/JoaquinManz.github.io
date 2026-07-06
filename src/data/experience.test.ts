@@ -12,13 +12,27 @@ describe('experienceData', () => {
     expect(experienceData.en.heading).toBe('Experience')
   })
 
-  it('keeps company, period and location identical across languages', () => {
+  it('keeps company and location identical across languages', () => {
     experienceData.es.entries.forEach((entry, index) => {
       const enEntry = experienceData.en.entries[index]
       expect(enEntry.company).toBe(entry.company)
-      expect(enEntry.period).toBe(entry.period)
       expect(enEntry.location).toBe(entry.location)
     })
+  })
+
+  it('keeps a pure date-range period identical across languages', () => {
+    const esEntry = experienceData.es.entries.find((entry) => entry.company === 'Alorica')
+    const enEntry = experienceData.en.entries.find((entry) => entry.company === 'Alorica')
+
+    expect(enEntry?.period).toBe(esEntry?.period)
+  })
+
+  it('translates the word "Presente" in an ongoing period to "Present"', () => {
+    const esEntry = experienceData.es.entries.find((entry) => entry.company === 'Visuar Uruguay')
+    const enEntry = experienceData.en.entries.find((entry) => entry.company === 'Visuar Uruguay')
+
+    expect(esEntry?.period).toBe('01/2026 - Presente')
+    expect(enEntry?.period).toBe('01/2026 - Present')
   })
 
   it('keeps an already-English role title verbatim across languages', () => {
