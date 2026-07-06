@@ -11,7 +11,7 @@ describe('Secu', () => {
       role: 'UML modeling and repository management',
       tech: ['UML', 'PlantUML'],
       highlights: ['Compared MER and UML models to detect inconsistencies'],
-      links: [{ label: 'Repo', href: '[SECU_REPO_URL]', kind: 'repo' }],
+      links: [{ label: 'Repo', href: 'https://git.utec.edu.uy/caso-de-estudio/secu', kind: 'repo' }],
       imageAlt: 'Diagram of the SECU system',
     }
 
