@@ -26,5 +26,8 @@ dist-ssr
 # gentle-ai / SDD cache local
 .atl/
 
+# CodeGraph local index
+.codegraph/
+
 # Claude Code — configuración personal, no la del equipo
 .claude/settings.local.json
