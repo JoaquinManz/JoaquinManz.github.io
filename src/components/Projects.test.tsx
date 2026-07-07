@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { Projects } from './Projects'
 import type { ProjectsData } from '../data/types'
 
@@ -21,7 +21,7 @@ describe('Projects', () => {
 
     expect(screen.getByText('Portfolio Site')).toBeInTheDocument()
     expect(screen.getByText('A personal portfolio built with React.')).toBeInTheDocument()
-    expect(screen.getByText('React')).toBeInTheDocument()
+    expect(within(screen.getByRole('list')).getByText('React')).toBeInTheDocument()
     expect(screen.getByText('Tailwind')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Repo' })).toHaveAttribute(
       'href',
@@ -29,6 +29,26 @@ describe('Projects', () => {
     )
     const stub = screen.getByRole('img', { name: 'Screenshot of Portfolio Site' })
     expect(stub.tagName).not.toBe('IMG')
+  })
+
+  it('renders a standalone category badge showing the project primary tech (tech[0])', () => {
+    const data: ProjectsData = {
+      heading: 'Projects',
+      projects: [
+        {
+          name: 'Portfolio Site',
+          description: 'A personal portfolio built with React.',
+          tech: ['React', 'Tailwind'],
+          links: [{ label: 'Repo', href: 'https://github.com/example/portfolio', kind: 'repo' }],
+          imageAlt: 'Screenshot of Portfolio Site',
+        },
+      ],
+    }
+
+    render(<Projects data={data} />)
+
+    const badge = screen.getByTestId('project-category-badge')
+    expect(badge).toHaveTextContent('React')
   })
 
   it('renders a real <img> when image is provided and multiple links (triangulation)', () => {
