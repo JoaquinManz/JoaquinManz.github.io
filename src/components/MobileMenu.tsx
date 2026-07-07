@@ -106,7 +106,7 @@ export function MobileMenu({
           type="button"
           aria-label="Close menu"
           onClick={onClose}
-          className="flex h-11 w-11 items-center justify-center rounded-full text-2xl text-text hover:text-accent"
+          className="flex h-11 w-11 items-center justify-center rounded-full text-2xl text-text hover:text-accent-fg"
         >
           <span aria-hidden="true">✕</span>
         </button>
@@ -117,7 +117,7 @@ export function MobileMenu({
             <a
               href={`#${item.id}`}
               onClick={onClose}
-              className="text-2xl text-text hover:text-accent"
+              className="text-2xl text-text hover:text-accent-fg"
             >
               {item.label}
             </a>

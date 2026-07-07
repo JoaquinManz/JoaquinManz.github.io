@@ -5,7 +5,7 @@ export function Contact({ data }: { data: ContactData }) {
     <div className="flex flex-col items-center gap-4 text-center">
       <h2 className="text-2xl font-semibold text-text">{data.heading}</h2>
       <p className="text-text">{data.message}</p>
-      <a href={`mailto:${data.email}`} className="font-medium text-accent underline">
+      <a href={`mailto:${data.email}`} className="font-medium text-accent-fg underline">
         {data.email}
       </a>
       <p className="text-text">{data.phone}</p>
@@ -17,7 +17,7 @@ export function Contact({ data }: { data: ContactData }) {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text hover:text-accent"
+              className="text-text hover:text-accent-fg"
             >
               {social.label}
             </a>

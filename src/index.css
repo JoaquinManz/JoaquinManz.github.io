@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-text: #6b6375;
-  --color-bg: #ffffff;
-  --color-accent: #aa3bff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #9ca3af;
-    --color-bg: #16171d;
-    --color-accent: #c084fc;
-  }
+  --color-bg: #111114;
+  --color-surface: #1b1b21;
+  --color-text: #e4e4e7;
+  --color-muted: #a1a1aa;
+  /* --color-accent: use for fills (buttons, dots, active states). */
+  --color-accent: #8b5cf6;
+  /* --color-accent-fg: lighter shade for accent-colored TEXT (links, headings) — accent's contrast on bg is AA-borderline for normal text. */
+  --color-accent-fg: #a78bfa;
+  /* --color-accent-glow: lightest stop, used only in the Hero name gradient/glow. */
+  --color-accent-glow: #c084fc;
+  --color-border: #ffffff1a;
 }
 
 html {
@@ -21,7 +21,7 @@ html {
 :root {
   font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: dark;
   color: var(--color-text);
   background: var(--color-bg);
   font-synthesis: none;

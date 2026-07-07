@@ -16,38 +16,44 @@ export function Hero({ data }: { data: HeroData }) {
           className="aspect-square w-40 rounded-2xl bg-accent/20"
         />
       )}
-      <h1 className="text-4xl font-semibold text-text">{data.name}</h1>
-      <p className="text-xl text-accent">{data.title}</p>
+      <p className="rounded-full border border-border bg-surface px-3 py-1 text-sm text-accent-fg">
+        {data.title}
+      </p>
+      <div className="relative">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 scale-150 rounded-full bg-gradient-to-r from-accent-fg via-accent to-accent-glow opacity-25 blur-3xl"
+        />
+        <h1 className="bg-gradient-to-r from-accent-fg via-accent to-accent-glow bg-clip-text text-4xl font-semibold text-transparent">
+          {data.name}
+        </h1>
+      </div>
       <p className="max-w-xl text-text">{data.tagline}</p>
-      <a
-        href={data.ctaHref}
-        download
-        className="rounded-full bg-accent px-6 py-3 font-medium text-bg"
-      >
-        {data.ctaLabel}
-      </a>
-      <ul className="flex gap-4">
-        <li>
-          <a
-            href={data.githubHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text hover:text-accent"
-          >
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            href={data.linkedinHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text hover:text-accent"
-          >
-            LinkedIn
-          </a>
-        </li>
-      </ul>
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={data.ctaHref}
+          download
+          className="rounded-full bg-accent px-6 py-3 font-medium text-bg"
+        >
+          {data.ctaLabel}
+        </a>
+        <a
+          href={data.githubHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-border px-6 py-3 font-medium text-text hover:text-accent-fg"
+        >
+          GitHub
+        </a>
+        <a
+          href={data.linkedinHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-border px-6 py-3 font-medium text-text hover:text-accent-fg"
+        >
+          LinkedIn
+        </a>
+      </div>
     </div>
   )
 }
