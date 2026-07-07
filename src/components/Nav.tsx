@@ -55,8 +55,11 @@ export function Nav({ items }: { items: NavItem[] }) {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-bg/90 backdrop-blur border-b border-black/10">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 lg:justify-center lg:gap-6">
-        <ul className="hidden flex-wrap items-center justify-center gap-6 lg:flex">
+      <div className="mx-auto grid max-w-5xl grid-cols-[minmax(2.25rem,1fr)_auto_minmax(2.25rem,1fr)] items-center gap-4 px-6 py-4">
+        <a href="#hero" aria-label="Joaquín Manzanares" className="col-start-1 justify-self-start">
+          <img src="/logos/logo-dark.svg" alt="" className="h-9 w-9" />
+        </a>
+        <ul className="col-start-2 hidden flex-wrap items-center justify-center gap-3 lg:flex">
           {items.map((item) => (
             <li key={item.id}>
               <a href={`#${item.id}`} className="text-text hover:text-accent">
@@ -64,7 +67,7 @@ export function Nav({ items }: { items: NavItem[] }) {
               </a>
             </li>
           ))}
-          <li>
+          <li className="ml-3 border-l border-black/10 pl-3">
             <LanguageToggle />
           </li>
         </ul>
@@ -76,7 +79,7 @@ export function Nav({ items }: { items: NavItem[] }) {
             aria-expanded={false}
             aria-controls={MOBILE_MENU_PANEL_ID}
             onClick={() => setMenuOpen(true)}
-            className="flex h-11 w-11 items-center justify-center rounded-full text-2xl text-text transition-colors duration-150 hover:text-accent lg:hidden"
+            className="col-start-3 flex h-11 w-11 items-center justify-center justify-self-end rounded-full text-2xl text-text transition-colors duration-150 hover:text-accent lg:hidden"
           >
             <span aria-hidden="true">☰</span>
           </button>

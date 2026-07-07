@@ -37,7 +37,7 @@ describe('Nav', () => {
 
     renderNav(items)
 
-    expect(screen.getAllByRole('link')).toHaveLength(3)
+    expect(screen.getAllByRole('link')).toHaveLength(4)
     expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('href', '#projects')
     expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '#contact')
     expect(screen.getByRole('link', { name: 'Skills' })).toHaveAttribute('href', '#skills')
