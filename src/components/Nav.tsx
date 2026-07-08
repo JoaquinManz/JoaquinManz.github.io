@@ -57,9 +57,7 @@ export function Nav({ items }: { items: NavItem[] }) {
     <nav className="fixed inset-x-0 top-4 z-50 px-4">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-6 py-3 backdrop-blur">
         <a href="#hero" aria-label="Joaquín Manzanares" className="flex items-center">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent">
-            <img src="/logos/logo-dark.svg" alt="" className="h-5 w-5" />
-          </span>
+          <img src="/logos/logo-dark-bg-2x.png" alt="" className="h-6 w-auto" />
         </a>
         <ul className="hidden flex-wrap items-center justify-center gap-3 lg:flex">
           {items.map((item) => (
