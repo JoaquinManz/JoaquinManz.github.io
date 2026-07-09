@@ -59,7 +59,7 @@ export function Nav({ items }: { items: NavItem[] }) {
         <a href="#hero" aria-label="Joaquín Manzanares" className="flex items-center">
           <img src="/logos/logo-dark-bg-2x.png" alt="" className="h-6 w-auto" />
         </a>
-        <ul className="hidden flex-wrap items-center justify-center gap-3 lg:flex">
+        <ul className="hidden flex-wrap items-center justify-center gap-2 lg:flex">
           {items.map((item) => (
             <li key={item.id}>
               <a href={`#${item.id}`} className="text-text hover:text-accent-fg">
@@ -67,7 +67,7 @@ export function Nav({ items }: { items: NavItem[] }) {
               </a>
             </li>
           ))}
-          <li className="ml-3 border-l border-border pl-3">
+          <li className="ml-2 border-l border-border pl-2">
             <LanguageToggle />
           </li>
         </ul>

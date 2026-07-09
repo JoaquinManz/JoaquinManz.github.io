@@ -2,7 +2,7 @@ import type { HeroData } from '../data/types'
 
 export function Hero({ data }: { data: HeroData }) {
   return (
-    <div className="flex flex-col items-center gap-4 text-center">
+    <div className="flex flex-col items-center gap-4 overflow-x-hidden text-center">
       {data.photo ? (
         <img
           src={data.photo}
