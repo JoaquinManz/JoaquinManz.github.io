@@ -3,8 +3,8 @@ import type { SecuData } from '../data/types'
 export function Secu({ data }: { data: SecuData }) {
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-text">{data.heading}</h2>
-      <article className="mt-6 grid gap-8 rounded-2xl border border-accent/30 bg-accent/10 p-8 lg:grid-cols-2 lg:items-center">
+      <h2 className="text-2xl font-semibold text-text sm:text-3xl">{data.heading}</h2>
+      <article className="mt-6 grid gap-8 rounded-2xl border border-accent/30 bg-accent/10 p-5 sm:p-6 lg:grid-cols-2 lg:items-center lg:p-8">
         {data.image ? (
           <img
             src={data.image}
@@ -19,7 +19,7 @@ export function Secu({ data }: { data: SecuData }) {
           />
         )}
         <div className="flex flex-col gap-4">
-          <h3 className="text-xl font-medium text-text">{data.name}</h3>
+          <h3 className="text-xl font-medium text-text sm:text-2xl">{data.name}</h3>
           <p className="text-text">{data.summary}</p>
           {data.role ? <p className="text-text">{data.role}</p> : null}
           <ul className="flex flex-wrap gap-2">

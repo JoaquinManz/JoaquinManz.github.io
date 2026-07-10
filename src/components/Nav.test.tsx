@@ -150,6 +150,17 @@ describe('Nav', () => {
       expect(button).toHaveAttribute('aria-controls', dialog.id)
     })
 
+    it('includes the language toggle inside the mobile menu panel', async () => {
+      const user = userEvent.setup()
+      renderNav(items)
+
+      await user.click(screen.getByRole('button', { name: /open menu/i }))
+
+      const dialog = screen.getByRole('dialog')
+      expect(within(dialog).getByRole('button', { name: 'ES' })).toBeInTheDocument()
+      expect(within(dialog).getByRole('button', { name: 'EN' })).toBeInTheDocument()
+    })
+
     it('closes the menu when a link inside the panel is clicked', async () => {
       const user = userEvent.setup()
       renderNav(items)
@@ -228,7 +239,7 @@ describe('Nav', () => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     })
 
-    it('traps focus within the open panel: Tab from the last link cycles to the close button', async () => {
+    it('traps focus within the open panel: Tab from the last focusable element cycles to the close button', async () => {
       const user = userEvent.setup()
       renderNav(items)
 
@@ -236,15 +247,15 @@ describe('Nav', () => {
 
       const closeButton = screen.getByRole('button', { name: /close menu/i })
       const dialog = screen.getByRole('dialog')
-      const links = within(dialog).getAllByRole('link')
-      links[links.length - 1].focus()
+      const lastLanguageButton = within(dialog).getByRole('button', { name: 'EN' })
+      lastLanguageButton.focus()
 
       await user.tab()
 
       expect(closeButton).toHaveFocus()
     })
 
-    it('traps focus within the open panel: Shift+Tab from the close button cycles to the last link', async () => {
+    it('traps focus within the open panel: Shift+Tab from the close button cycles to the last focusable element', async () => {
       const user = userEvent.setup()
       renderNav(items)
 
@@ -256,8 +267,7 @@ describe('Nav', () => {
 
       await user.tab({ shift: true })
 
-      const links = within(dialog).getAllByRole('link')
-      expect(links[links.length - 1]).toHaveFocus()
+      expect(within(dialog).getByRole('button', { name: 'EN' })).toHaveFocus()
     })
 
     it('has a hit area of at least 44x44px on the hamburger button', () => {
