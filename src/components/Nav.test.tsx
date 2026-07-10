@@ -54,6 +54,47 @@ describe('Nav', () => {
     expect(screen.getByRole('list')).toHaveClass('flex-wrap')
   })
 
+  it('keeps gap-2 on the nav links list (1024px pill-wrap regression guard)', () => {
+    const items: NavItem[] = [
+      { id: 'hero', label: 'Home' },
+      { id: 'about', label: 'About' },
+    ]
+
+    renderNav(items)
+
+    expect(screen.getByRole('list')).toHaveClass('gap-2')
+  })
+
+  it('lays out the pill container as a 3-column grid at lg so the language toggle no longer shifts link centering', () => {
+    const items: NavItem[] = [
+      { id: 'hero', label: 'Home' },
+      { id: 'about', label: 'About' },
+    ]
+
+    renderNav(items)
+
+    const pillContainer = screen.getByRole('list').parentElement
+    expect(pillContainer).toHaveClass('lg:grid', 'lg:grid-cols-[auto_1fr_auto]', 'lg:justify-normal')
+  })
+
+  it('renders the language toggle as a sibling of the nav links list, not as a child li', () => {
+    const items: NavItem[] = [{ id: 'hero', label: 'Home' }]
+
+    renderNav(items)
+
+    const list = screen.getByRole('list')
+    const listItems = within(list).getAllByRole('listitem')
+    for (const item of listItems) {
+      expect(within(item).queryByRole('button', { name: 'ES' })).not.toBeInTheDocument()
+      expect(within(item).queryByRole('button', { name: 'EN' })).not.toBeInTheDocument()
+    }
+
+    const toggleGroup = screen.getByRole('group', { name: 'Language' })
+    const toggleWrapper = toggleGroup.parentElement
+    expect(toggleWrapper).toHaveClass('ml-2', 'border-l', 'border-border', 'pl-2')
+    expect(list.contains(toggleWrapper)).toBe(false)
+  })
+
   describe('language toggle', () => {
     const items: NavItem[] = [{ id: 'hero', label: 'Home' }]
 

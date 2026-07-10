@@ -34,7 +34,7 @@ export function Nav({ items }: { items: NavItem[] }) {
 
   return (
     <nav className="fixed inset-x-0 top-4 z-50 px-4">
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-6 py-3 backdrop-blur">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-6 py-3 backdrop-blur lg:grid lg:grid-cols-[auto_1fr_auto] lg:justify-normal">
         <a href="#hero" aria-label="Joaquín Manzanares" className="flex items-center">
           <img src="/logos/logo-dark-bg-2x.png" alt="" className="h-6 w-auto" />
         </a>
@@ -46,10 +46,10 @@ export function Nav({ items }: { items: NavItem[] }) {
               </a>
             </li>
           ))}
-          <li className="ml-2 border-l border-border pl-2">
-            <LanguageToggle />
-          </li>
         </ul>
+        <div className="hidden lg:flex lg:items-center ml-2 border-l border-border pl-2">
+          <LanguageToggle />
+        </div>
         {!menuOpen ? (
           <button
             ref={menuButtonRef}
