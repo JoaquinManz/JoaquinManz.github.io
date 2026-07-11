@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 import { heroData } from './data/hero'
@@ -19,8 +19,13 @@ describe('App', () => {
   it('renders the nav and all eight sections in order with matching ids', () => {
     render(<App />)
 
+    const desktopNav = screen.getAllByRole('navigation')[0]
+
     for (const item of navItems.es) {
-      expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', `#${item.id}`)
+      expect(within(desktopNav).getByRole('link', { name: item.label })).toHaveAttribute(
+        'href',
+        `#${item.id}`,
+      )
     }
 
     expect(document.querySelector('section#hero')).not.toBeNull()
@@ -58,7 +63,8 @@ describe('App', () => {
 
     await user.click(screen.getByRole('button', { name: 'EN' }))
 
-    expect(screen.getByRole('link', { name: navItems.en[0].label })).toHaveAttribute(
+    const desktopNav = screen.getAllByRole('navigation')[0]
+    expect(within(desktopNav).getByRole('link', { name: navItems.en[0].label })).toHaveAttribute(
       'href',
       `#${navItems.en[0].id}`,
     )
@@ -69,5 +75,26 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: projectsData.en.heading })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: contactData.en.heading })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: aboutData.es.heading })).not.toBeInTheDocument()
+  })
+
+  it('renders the mobile bottom nav with a link for each nav item', () => {
+    render(<App />)
+
+    const bottomNav = screen.getByRole('navigation', { name: 'Section navigation' })
+
+    for (const item of navItems.es) {
+      expect(within(bottomNav).getByRole('link', { name: item.label })).toHaveAttribute(
+        'href',
+        `#${item.id}`,
+      )
+    }
+  })
+
+  it('pads main with extra bottom space so mobile content clears the fixed bottom nav', () => {
+    render(<App />)
+
+    const main = document.querySelector('main')
+    expect(main).toHaveClass('pb-28', 'lg:pb-16')
+    expect(main).not.toHaveClass('pb-16')
   })
 })
