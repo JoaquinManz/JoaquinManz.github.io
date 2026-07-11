@@ -22,7 +22,7 @@ export function Hero({ data }: { data: HeroData }) {
       <div className="relative">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 scale-150 rounded-full bg-gradient-to-r from-accent-fg via-accent to-accent-glow opacity-25 blur-3xl"
+          className="absolute inset-0 -z-10 scale-125 rounded-full bg-gradient-to-r from-accent-fg via-accent to-accent-glow opacity-25 blur-2xl"
         />
         <h1 className="bg-gradient-to-r from-accent-fg via-accent to-accent-glow bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl lg:text-5xl">
           {data.name}
