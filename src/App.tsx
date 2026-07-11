@@ -1,4 +1,5 @@
 import { Nav } from './components/Nav'
+import { MobileBottomNav } from './components/MobileBottomNav'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { Skills } from './components/Skills'
@@ -24,7 +25,7 @@ function AppContent() {
   return (
     <>
       <Nav items={navItems[lang]} />
-      <main className="mx-auto flex max-w-4xl flex-col gap-24 px-6 pt-24 pb-16">
+      <main className="mx-auto flex max-w-4xl flex-col gap-24 px-6 pt-24 pb-28 lg:pb-16">
         <section id="hero" className="scroll-mt-24">
           <Hero data={heroData[lang]} />
         </section>
@@ -50,6 +51,7 @@ function AppContent() {
           <Contact data={contactData[lang]} />
         </section>
       </main>
+      <MobileBottomNav items={navItems[lang]} />
     </>
   )
 }
