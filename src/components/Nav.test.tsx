@@ -54,6 +54,47 @@ describe('Nav', () => {
     expect(screen.getByRole('list')).toHaveClass('flex-wrap')
   })
 
+  it('keeps gap-2 on the nav links list (1024px pill-wrap regression guard)', () => {
+    const items: NavItem[] = [
+      { id: 'hero', label: 'Home' },
+      { id: 'about', label: 'About' },
+    ]
+
+    renderNav(items)
+
+    expect(screen.getByRole('list')).toHaveClass('gap-2')
+  })
+
+  it('lays out the pill container as a 3-column grid at lg so the language toggle no longer shifts link centering', () => {
+    const items: NavItem[] = [
+      { id: 'hero', label: 'Home' },
+      { id: 'about', label: 'About' },
+    ]
+
+    renderNav(items)
+
+    const pillContainer = screen.getByRole('list').parentElement
+    expect(pillContainer).toHaveClass('lg:grid', 'lg:grid-cols-[auto_1fr_auto]', 'lg:justify-normal')
+  })
+
+  it('renders the language toggle as a sibling of the nav links list, not as a child li', () => {
+    const items: NavItem[] = [{ id: 'hero', label: 'Home' }]
+
+    renderNav(items)
+
+    const list = screen.getByRole('list')
+    const listItems = within(list).getAllByRole('listitem')
+    for (const item of listItems) {
+      expect(within(item).queryByRole('button', { name: 'ES' })).not.toBeInTheDocument()
+      expect(within(item).queryByRole('button', { name: 'EN' })).not.toBeInTheDocument()
+    }
+
+    const toggleGroup = screen.getByRole('group', { name: 'Language' })
+    const toggleWrapper = toggleGroup.parentElement
+    expect(toggleWrapper).toHaveClass('ml-2', 'border-l', 'border-border', 'pl-2')
+    expect(list.contains(toggleWrapper)).toBe(false)
+  })
+
   describe('language toggle', () => {
     const items: NavItem[] = [{ id: 'hero', label: 'Home' }]
 
@@ -150,6 +191,17 @@ describe('Nav', () => {
       expect(button).toHaveAttribute('aria-controls', dialog.id)
     })
 
+    it('includes the language toggle inside the mobile menu panel', async () => {
+      const user = userEvent.setup()
+      renderNav(items)
+
+      await user.click(screen.getByRole('button', { name: /open menu/i }))
+
+      const dialog = screen.getByRole('dialog')
+      expect(within(dialog).getByRole('button', { name: 'ES' })).toBeInTheDocument()
+      expect(within(dialog).getByRole('button', { name: 'EN' })).toBeInTheDocument()
+    })
+
     it('closes the menu when a link inside the panel is clicked', async () => {
       const user = userEvent.setup()
       renderNav(items)
@@ -228,7 +280,7 @@ describe('Nav', () => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     })
 
-    it('traps focus within the open panel: Tab from the last link cycles to the close button', async () => {
+    it('traps focus within the open panel: Tab from the last focusable element cycles to the close button', async () => {
       const user = userEvent.setup()
       renderNav(items)
 
@@ -236,15 +288,15 @@ describe('Nav', () => {
 
       const closeButton = screen.getByRole('button', { name: /close menu/i })
       const dialog = screen.getByRole('dialog')
-      const links = within(dialog).getAllByRole('link')
-      links[links.length - 1].focus()
+      const lastLanguageButton = within(dialog).getByRole('button', { name: 'EN' })
+      lastLanguageButton.focus()
 
       await user.tab()
 
       expect(closeButton).toHaveFocus()
     })
 
-    it('traps focus within the open panel: Shift+Tab from the close button cycles to the last link', async () => {
+    it('traps focus within the open panel: Shift+Tab from the close button cycles to the last focusable element', async () => {
       const user = userEvent.setup()
       renderNav(items)
 
@@ -256,8 +308,7 @@ describe('Nav', () => {
 
       await user.tab({ shift: true })
 
-      const links = within(dialog).getAllByRole('link')
-      expect(links[links.length - 1]).toHaveFocus()
+      expect(within(dialog).getByRole('button', { name: 'EN' })).toHaveFocus()
     })
 
     it('has a hit area of at least 44x44px on the hamburger button', () => {

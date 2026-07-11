@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import type { NavItem } from '../data/types'
+import { LanguageToggle } from './LanguageToggle'
 
 const PANEL_ID = 'mobile-menu-panel'
 
@@ -124,6 +125,9 @@ export function MobileMenu({
           </li>
         ))}
       </ul>
+      <div className="flex justify-center px-6 pb-10">
+        <LanguageToggle />
+      </div>
     </div>,
     document.body,
   )

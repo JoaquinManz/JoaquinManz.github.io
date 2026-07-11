@@ -1,30 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import type { Language, NavItem } from '../data/types'
-import { useLanguage } from '../context/LanguageContext'
+import type { NavItem } from '../data/types'
 import { MobileMenu, MOBILE_MENU_PANEL_ID } from './MobileMenu'
+import { LanguageToggle } from './LanguageToggle'
 
-const LANGUAGES: Language[] = ['es', 'en']
 const LG_BREAKPOINT = 1024
-
-function LanguageToggle() {
-  const { lang, setLang } = useLanguage()
-
-  return (
-    <div className="flex gap-1 rounded-full border border-border p-1" role="group" aria-label="Language">
-      {LANGUAGES.map((option) => (
-        <button
-          key={option}
-          type="button"
-          aria-pressed={lang === option}
-          onClick={() => setLang(option)}
-          className="rounded-full px-3 py-1 text-sm font-medium text-text aria-pressed:bg-accent aria-pressed:text-bg"
-        >
-          {option.toUpperCase()}
-        </button>
-      ))}
-    </div>
-  )
-}
 
 export function Nav({ items }: { items: NavItem[] }) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -55,7 +34,7 @@ export function Nav({ items }: { items: NavItem[] }) {
 
   return (
     <nav className="fixed inset-x-0 top-4 z-50 px-4">
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-6 py-3 backdrop-blur">
+      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 rounded-full border border-border bg-surface/90 px-6 py-3 backdrop-blur lg:grid lg:grid-cols-[auto_1fr_auto] lg:justify-normal">
         <a href="#hero" aria-label="Joaquín Manzanares" className="flex items-center">
           <img src="/logos/logo-dark-bg-2x.png" alt="" className="h-6 w-auto" />
         </a>
@@ -67,10 +46,10 @@ export function Nav({ items }: { items: NavItem[] }) {
               </a>
             </li>
           ))}
-          <li className="ml-2 border-l border-border pl-2">
-            <LanguageToggle />
-          </li>
         </ul>
+        <div className="hidden lg:flex lg:items-center ml-2 border-l border-border pl-2">
+          <LanguageToggle />
+        </div>
         {!menuOpen ? (
           <button
             ref={menuButtonRef}
