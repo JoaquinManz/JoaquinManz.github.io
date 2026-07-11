@@ -11,7 +11,7 @@ export const experienceData: Record<Language, ExperienceData> = {
         location: 'Montevideo',
         highlights: [
           'Gestión de hasta 1.000 facturas semanales con 100% de trazabilidad documental',
-          'Coordinación de distribución de 500-700 productos semanales para grandes cadenas (Tienda Inglesa, Disco, El Dorado)',
+          'Coordinación de distribución de 500-700 productos semanales para grandes cadenas (Tienda Inglesa, Disco, Devoto)',
           'Digitalización de registros mediante sistema Softland',
         ],
       },
@@ -38,7 +38,7 @@ export const experienceData: Record<Language, ExperienceData> = {
         location: 'Montevideo',
         highlights: [
           'Managed up to 1,000 weekly invoices with 100% document traceability',
-          'Coordinated weekly distribution of 500-700 products for major retail chains (Tienda Inglesa, Disco, El Dorado)',
+          'Coordinated weekly distribution of 500-700 products for major retail chains (Tienda Inglesa, Disco, Devoto)',
           'Digitized records using the Softland system',
         ],
       },
