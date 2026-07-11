@@ -22,7 +22,11 @@ export function Hero({ data }: { data: HeroData }) {
       <div className="relative">
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 scale-125 rounded-full bg-gradient-to-r from-accent-fg via-accent to-accent-glow opacity-25 blur-2xl"
+          className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-accent-fg via-accent to-accent-glow opacity-25 blur-lg sm:blur-xl lg:blur-2xl"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, white 20%, white 80%, transparent)',
+          }}
         />
         <h1 className="bg-gradient-to-r from-accent-fg via-accent to-accent-glow bg-clip-text text-3xl font-semibold text-transparent sm:text-4xl lg:text-5xl">
           {data.name}
