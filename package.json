@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "cross-env NODE_OPTIONS=--no-experimental-webstorage vitest run",
-    "test:watch": "cross-env NODE_OPTIONS=--no-experimental-webstorage vitest"
+    "test:watch": "cross-env NODE_OPTIONS=--no-experimental-webstorage vitest",
+    "visual": "node scripts/visual-check.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.2",
@@ -28,6 +29,7 @@
     "cross-env": "^10.1.0",
     "jsdom": "^29.1.1",
     "oxlint": "^1.71.0",
+    "playwright": "^1.56.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
     "vitest": "^4.1.9"

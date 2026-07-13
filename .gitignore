@@ -31,3 +31,6 @@ dist-ssr
 
 # Claude Code — configuración personal, no la del equipo
 .claude/settings.local.json
+
+# visual-check
+screenshots/
